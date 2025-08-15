@@ -1,0 +1,27 @@
+# Lazy.nvim plugin directory
+lazy-lock.json
+
+# Log files
+*.log
+
+# Neovim state/cache
+.repro/
+debug.log
+
+# OS stuff
+.DS_Store
+Thumbs.db
+
+# Backup files
+*~
+*.swp
+*.swo
+.*.sw*
+
+# Session files
+Session.vim
+.session
+
+# Any personal API keys or tokens
+.env
+*.key
