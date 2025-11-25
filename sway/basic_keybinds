@@ -1,0 +1,44 @@
+# floating window control rules
+# -----------------------------
+#
+# drag floating windows by holding down $mod and left mouse button.
+# resize them with right mouse button + $mod.
+# despite the name, also works for non-floating windows.
+
+# start a terminal. you can change the terminal in variables file.
+bindsym $mod+return exec $term
+
+# kill focused window.
+bindsym $mod+c kill
+
+# start your launcher.
+bindsym $mod+d exec $menu
+
+# take screenshot.
+bindsym $mod+s exec $config_path/screenshot.sh
+
+# change normal to inverse to use left mouse button for resizing and
+# right mouse button for dragging.
+floating_modifier $mod normal
+
+# reload the configuration file.
+bindsym $mod+q reload
+
+# exit sway (logs you out of your wayland session).
+bindsym $mod+m exec swaymsg exit
+
+# Brightness controls
+set $brightness_up exec brightnessctl set +10%
+set $brightness_down exec brightnessctl set 10%-
+
+bindsym XF86MonBrightnessUp $brightness_up
+bindsym XF86MonBrightnessDown $brightness_down
+
+# Volume controls
+set $vol_up exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+set $vol_down exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+set $vol_mute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym XF86AudioRaiseVolume $vol_up
+bindsym XF86AudioLowerVolume $vol_down
+bindsym XF86AudioMute $vol_mute
